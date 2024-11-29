@@ -1,4 +1,3 @@
-import React, { lazy, memo, Suspense, useEffect, useState } from "react";
 import {
   Backdrop,
   Box,
@@ -6,14 +5,15 @@ import {
   Drawer,
   Grid,
   IconButton,
+  Skeleton,
   Stack,
   TextField,
   Tooltip,
   Typography,
-  useTheme,
   useMediaQuery,
-  Skeleton,
+  useTheme,
 } from "@mui/material";
+import React, { lazy, memo, Suspense, useEffect, useState } from "react";
 
 const ConfirmDeleteDialog = lazy(() =>
   import("../components/dialog/ConfirmDeleteDialog")
@@ -24,31 +24,27 @@ const AddMemberDialog = lazy(() =>
 );
 
 import {
+  Add as AddIcon,
+  Delete as DeleteIcon,
+  Done as DoneIcon,
+  Edit as EditIcon,
   KeyboardBackspace as KeyboardBackspaceIcon,
   Menu as MenuIcon,
-  Edit as EditIcon,
-  Done as DoneIcon,
-  Delete as DeleteIcon,
-  Add as AddIcon,
 } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { Link } from "../components/styles/StyledComponents";
+import { LayoutLoader } from "../components/Layout/Loaders";
 import AvatarCard from "../components/Shared/AvatarCard";
-import { sampleChats, sampleUsers } from "../constants/SampleData";
 import UserItem from "../components/Shared/UserItem";
-import Header from "../components/Layout/Header";
+import { Link } from "../components/styles/StyledComponents";
+import { useAsyncMutation, useErrors } from "../hooks/hook";
 import {
-  useAddGroupMemberMutation,
   useDeleteChatMutation,
   useGetChatDetailsQuery,
   useMyGroupsQuery,
   useRemoveGroupMemberMutation,
   useRenameGroupMutation,
 } from "../redux/api/api";
-import { useAsyncMutation, useErrors } from "../hooks/hook";
-import { LayoutLoader } from "../components/Layout/Loaders";
-import { populate } from "dotenv";
-import { useDispatch, useSelector } from "react-redux";
 import { setIsAddMember } from "../redux/reducers/misc";
 
 const Group = () => {

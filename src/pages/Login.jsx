@@ -1,26 +1,26 @@
 import {
   Avatar,
   Button,
+  CircularProgress,
   Container,
   IconButton,
   Paper,
   Stack,
   TextField,
   Typography,
-  CircularProgress,
 } from "@mui/material";
 import { useState } from "react";
 
+import { useFileHandler, useInputValidation, useStrongPassword } from "6pp";
 import { CameraAlt as CameraAltIcon } from "@mui/icons-material";
-import { VisuallyHiddenInput } from "../components/styles/StyledComponents";
-import { useInputValidation, useStrongPassword, useFileHandler } from "6pp";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { VisuallyHiddenInput } from "../components/styles/StyledComponents";
 
-import { userNameValidator } from "../utils/Validators";
-import { userExists } from "../redux/reducers/auth";
 import toast from "react-hot-toast";
 import { server } from "../constants/config";
+import { userExists } from "../redux/reducers/auth";
+import { userNameValidator } from "../utils/Validators";
 
 const Login = () => {
   const [isLogin, setisLogin] = useState(true);

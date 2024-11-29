@@ -1,31 +1,31 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import AppLayout from "../components/Layout/AppLayout";
-import { Box, Skeleton, Stack } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 import SendIcon from "@mui/icons-material/Send";
+import { Skeleton, Stack } from "@mui/material";
+import IconButton from "@mui/material/IconButton";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import AppLayout from "../components/Layout/AppLayout";
 
+import { useInfiniteScrollTop } from "6pp";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import FileMenu from "../components/dialog/FileMenu";
+import { TypingLoader } from "../components/Layout/Loaders";
 import MessageComponent from "../components/Shared/MessageComponent";
 import { InputBox } from "../components/styles/StyledComponents";
-import { getSocket } from "../socket";
 import {
   alert,
   newMessage,
   START_TYPING,
   STOP_TYPING,
 } from "../constants/event";
-import { TypingLoader } from "../components/Layout/Loaders";
+import { useErrors, useSocketEvents } from "../hooks/hook";
 import {
   useGetChatDetailsQuery,
   useGetMyMessagesQuery,
 } from "../redux/api/api";
-import { useErrors, useSocketEvents } from "../hooks/hook";
-import { useInfiniteScrollTop } from "6pp";
-import { useDispatch } from "react-redux";
-import { setIsFileMenu } from "../redux/reducers/misc";
-import FileMenu from "../components/dialog/FileMenu";
 import { removeNewMessagesAlert } from "../redux/reducers/chat";
-import { useNavigate } from "react-router-dom";
+import { setIsFileMenu } from "../redux/reducers/misc";
+import { getSocket } from "../socket";
 
 const Chat = ({ chat_id, confirm }) => {
   const socket = getSocket();
