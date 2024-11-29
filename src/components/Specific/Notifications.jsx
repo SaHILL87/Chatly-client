@@ -9,13 +9,12 @@ import {
   Typography,
 } from "@mui/material";
 import React, { memo } from "react";
-import { sampleNotifications } from "../../constants/SampleData";
+import toast from "react-hot-toast";
+import { useErrors } from "../../hooks/hook";
 import {
   useAcceptFriendRequestMutation,
   useGetNotificationsQuery,
 } from "../../redux/api/api";
-import { useErrors } from "../../hooks/hook";
-import toast from "react-hot-toast";
 
 const Notifications = ({ open, onClose }) => {
   const { isLoading, data, error, isError } = useGetNotificationsQuery();

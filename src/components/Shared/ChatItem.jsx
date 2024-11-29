@@ -1,8 +1,8 @@
-import React, { memo, useEffect } from "react";
-import { Link } from "../styles/StyledComponents";
-import { Stack, Typography, Box, styled } from "@mui/material";
-import AvatarCard from "./AvatarCard";
+import { Box, Stack, styled, Typography } from "@mui/material";
 import { motion } from "framer-motion";
+import React, { memo } from "react";
+import { Link } from "../styles/StyledComponents";
+import AvatarCard from "./AvatarCard";
 
 // Styled Motion Div
 const StyledMotionDiv = styled(motion.div)(({ theme, sameSender }) => ({

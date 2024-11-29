@@ -1,9 +1,9 @@
-import { Box, Typography, Tooltip, styled } from "@mui/material";
+import { Box, Tooltip, Typography, styled } from "@mui/material";
+import { motion } from "framer-motion";
 import moment from "moment";
 import React, { memo } from "react";
 import { fileFormat } from "../../lib/Features";
 import RenderAttachment from "./renderAttachment";
-import { motion } from "framer-motion";
 
 // Styled Motion Div
 const StyledMotionDiv = styled(motion.div)(({ theme, sameSender }) => ({

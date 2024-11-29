@@ -1,4 +1,4 @@
-import { Box, keyframes, Skeleton, styled } from "@mui/material";
+import { keyframes, styled } from "@mui/material";
 
 import { Link as LinkedComponent } from "react-router-dom";
 export const VisuallyHiddenInput = styled("input")({

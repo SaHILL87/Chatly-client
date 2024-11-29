@@ -1,25 +1,21 @@
+import { useInputValidation } from "6pp";
+import { Search as SearchIcon } from "@mui/icons-material";
 import {
   Dialog,
   DialogTitle,
   InputAdornment,
   List,
-  ListItem,
-  ListItemText,
   Stack,
   TextField,
 } from "@mui/material";
-import { Search as SearchIcon } from "@mui/icons-material";
 import React, { useEffect, useState } from "react";
-import { useInputValidation } from "6pp";
-import UserItem from "../Shared/UserItem";
-import { sampleUsers } from "../../constants/SampleData";
+import { useSelector } from "react-redux";
+import { useAsyncMutation } from "../../hooks/hook";
 import {
   useLazySearchUserQuery,
   useSendFriendRequestMutation,
 } from "../../redux/api/api";
-import toast from "react-hot-toast";
-import { useSelector } from "react-redux";
-import { useAsyncMutation } from "../../hooks/hook";
+import UserItem from "../Shared/UserItem";
 
 const Search = ({ open, onClose }) => {
   const search = useInputValidation("");

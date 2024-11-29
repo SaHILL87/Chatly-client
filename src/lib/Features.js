@@ -1,5 +1,5 @@
-import moment from "moment";
 import CryptoJs from "crypto-js";
+import moment from "moment";
 
 export const fileFormat = (url = "") => {
   const fileExtension = url.split(".").pop();
