@@ -1,4 +1,4 @@
-import CryptoJs from "crypto-js";
+// import CryptoJs from "crypto-js";
 import moment from "moment";
 
 export const fileFormat = (url = "") => {
@@ -53,13 +53,13 @@ export const getOrSaveFromLocalStorage = ({ key, value, get }) => {
   } else localStorage.setItem(key, JSON.stringify(value));
 };
 
-export const encodeMessgaes = (messages = []) => {
-  //crypto js
+// export const encodeMessgaes = (messages = []) => {
+//   //crypto js
 
-  const encryptedMessages = CryptoJs.AES.encrypt(
-    JSON.stringify(messages),
-    "secret"
-  ).toString();
+//   const encryptedMessages = CryptoJs.AES.encrypt(
+//     JSON.stringify(messages),
+//     "secret"
+//   ).toString();
 
-  return encryptedMessages;
-};
+//   return encryptedMessages;
+// };
