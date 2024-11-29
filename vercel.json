@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "rewrites": [{ "src": "/(.*)", "dest": "/index.html" }],
+
   "routes": [
     {
       "src": "/(.*)",
